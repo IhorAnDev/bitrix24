@@ -10,20 +10,20 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 $userArray = $_GET;
 
-$user_data = null;
+$userArray = null;
 if (isset($_POST['data']) && !empty($_POST['data'])) {
     try {
-        $parsed_user_data = json_decode($_POST['data'], true);
+        $parsedUserData = json_decode($_POST['data'], true);
 
-        if (is_array($parsed_user_data)) {
-            $user_data = $parsed_user_data;
+        if (is_array($parsedUserData)) {
+            $userArray = $parsedUserData;
         }
     } catch (Exception $e) {}
 }
 
-if ($user_data !== null) {
+if ($userArray !== null) {
     // Something good action
-    echo json_encode($user_data);
+    echo json_encode($userArray);
 } else {
     echo 'bad bad bad';
     // :(
