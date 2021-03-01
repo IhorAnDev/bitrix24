@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace LinkedinToBitrixImporter;
 
 class Work
 {

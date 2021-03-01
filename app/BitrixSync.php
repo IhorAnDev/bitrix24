@@ -1,11 +1,10 @@
 <?php
 
-namespace App;
+namespace LinkedinToBitrixImporter;
 
 class BitrixSync
 {
     public function test()
     {
-        return new LinkedinProfile();
     }
 }
