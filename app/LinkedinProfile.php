@@ -23,13 +23,12 @@ class LinkedinProfile
 
     private array $userData;
 
-    public function __construct(array $user, array $work, array $education, array $skills)
+    public function __construct(array $userArray)
     {
-        $this->userData = $user;
-        $this->setWorks($work);
-        $this->setEducation($education);
-        $this->setSkills($skills);
-
+        $this->userData = $userArray['basics'];
+        $this->setWorks($userArray['work']);
+        $this->setEducation($userArray['education']);
+        $this->setSkills($userArray['skills']);
         $this->setNewUserArray();
     }
 

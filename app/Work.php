@@ -18,7 +18,9 @@ class Work
         $this->endDate = $work['endDate'];
         $this->position = $work['position'];
         $this->startDate = $work['startDate'];
-        $this->summary = $work['summary'];
+        $this->summary = isset($this->$work['summary'], $this->$work['summary'])
+            ? $this->$work['summary']
+            : '';
         $this->website = $work['website'];
     }
 

@@ -9,11 +9,26 @@ class ComposerStaticInit4a5b15140e3d287de2bb9acaaaa3ff1f
     public static $prefixLengthsPsr4 = array (
         'A' => 
         array (
+            'App\\HTTP\\' => 9,
+            'App\\DebugLogger\\' => 16,
+            'App\\Bitrix24\\' => 13,
             'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'App\\HTTP\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/andrey-tech/http-client-php/src/App/HTTP',
+        ),
+        'App\\DebugLogger\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/andrey-tech/debug-logger-php/src/App/DebugLogger',
+        ),
+        'App\\Bitrix24\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/andrey-tech/bitrix24-api-php/src/App/Bitrix24',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
