@@ -33,3 +33,4 @@ if ($userArray !== null) {
     echo 'request exit';
     // :(
 }
+

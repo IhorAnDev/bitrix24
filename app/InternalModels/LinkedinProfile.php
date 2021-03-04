@@ -6,11 +6,16 @@ class LinkedinProfile
 {
 
     protected string $name;
+    protected string $surname;
     protected string $label;
     protected string $email;
     protected string $phone;
     protected string $website;
     protected string $summary;
+    protected string $user;
+
+
+
 
     /** @var Work[] $works */
     protected array $works;
@@ -22,6 +27,7 @@ class LinkedinProfile
     protected array $skills;
 
     private array $userData;
+    protected array $usersData;
 
     public function __construct(array $userArray)
     {
@@ -30,11 +36,20 @@ class LinkedinProfile
         $this->setEducation($userArray['education']);
         $this->setSkills($userArray['skills']);
         $this->setNewUserArray();
+
     }
+
+
 
     protected function setNewUserArray(): self
     {
-        $this->name = $this->userData['name'] ?? '';
+        $this->user = $this->userData['name'];
+        $this->usersData = explode(' ',$this->user);
+        $this->name = $this->usersData[0];
+        $this->surname = $this->usersData[1];
+        $this->name = $this->usersData[0] ?? '';
+
+
         $this->label = $this->userData['label'] ?? '';
 
         $this->email = isset($this->userData['email'], $this->userData['email'])
@@ -89,9 +104,25 @@ class LinkedinProfile
     /**
      * @return string
      */
+    public function getSurname(): string
+    {
+        return $this->surname;
+    }
+
+    /**
+     * @return string
+     */
     public function getPhone(): string
     {
         return $this->phone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLabel(): string
+    {
+        return $this->label;
     }
 
 }

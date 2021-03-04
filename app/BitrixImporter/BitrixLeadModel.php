@@ -19,7 +19,7 @@ class BitrixLeadModel
         $this->bitrixLead = [
             'TITLE' => '',
             'NAME' => $this->linkedinProfile->getName(),
-            'LAST_NAME' => '',
+            'LAST_NAME' => $this->linkedinProfile->getSurname(),
             'SECOND_NAME' => '',
             'PHONE' => [
                 [
@@ -27,7 +27,7 @@ class BitrixLeadModel
                     'VALUE_TYPE' => 'WORK',
                 ]
             ],
-            'COMPANY_TITLE' => '',
+            'COMPANY_TITLE' => $this->linkedinProfile->getLabel(),
             'EMAIL' => [
                 [
                     'VALUE' => '',
