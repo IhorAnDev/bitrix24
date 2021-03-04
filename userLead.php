@@ -10,7 +10,7 @@ try {
     $webhookURL = 'https://wdtest.bitrix24.ru/rest/1/bnr59s5dl5k8zeic/';
     $bx24 = new Bitrix24API($webhookURL);
 
-    $newLead = $bx24->getLeadFields();
+//    $newLead = $bx24->getLeadFields();
 //    var_dump($newLead);
 //    die();
 
@@ -33,6 +33,7 @@ try {
     // Добавляем новый лид
     $leadId = $bx24->addLead($leadField);
     print_r($leadId);
+
 
 
 

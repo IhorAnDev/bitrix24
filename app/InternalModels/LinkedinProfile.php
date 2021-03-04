@@ -1,6 +1,6 @@
 <?php
 
-namespace LinkedinToBitrixImporter;
+namespace LinkedinToBitrixImporter\InternalModels;
 
 class LinkedinProfile
 {
@@ -76,6 +76,22 @@ class LinkedinProfile
         foreach ($skills as $userSkills) {
             $this->skills[] = new Skills($userSkills);
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhone(): string
+    {
+        return $this->phone;
     }
 
 }

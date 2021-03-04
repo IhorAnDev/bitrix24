@@ -7,16 +7,23 @@ namespace Composer\Autoload;
 class ComposerStaticInit4a5b15140e3d287de2bb9acaaaa3ff1f
 {
     public static $prefixLengthsPsr4 = array (
+        'L' => 
+        array (
+            'LinkedinToBitrixImporter\\' => 25,
+        ),
         'A' => 
         array (
             'App\\HTTP\\' => 9,
             'App\\DebugLogger\\' => 16,
             'App\\Bitrix24\\' => 13,
-            'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'LinkedinToBitrixImporter\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
+        ),
         'App\\HTTP\\' => 
         array (
             0 => __DIR__ . '/..' . '/andrey-tech/http-client-php/src/App/HTTP',
@@ -28,10 +35,6 @@ class ComposerStaticInit4a5b15140e3d287de2bb9acaaaa3ff1f
         'App\\Bitrix24\\' => 
         array (
             0 => __DIR__ . '/..' . '/andrey-tech/bitrix24-api-php/src/App/Bitrix24',
-        ),
-        'App\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 

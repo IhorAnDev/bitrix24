@@ -1,24 +1,15 @@
 <?php
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
+use LinkedinToBitrixImporter\ArrayClass;
+use App\Bitrix24\Bitrix24API;
 
-define('BITRIX_DOMAIN', 'https://wdtest.bitrix24.ru');
+$webhookURL = 'https://wdtest.bitrix24.ru/rest/1/bnr59s5dl5k8zeic/';
+$bx24 = new Bitrix24API($webhookURL);
 
-$webhookURL = BITRIX_DOMAIN . '/rest/1/36zq3foulz4pcx0t/profile.json';
+$test = new ArrayClass();
 
-$curl = curl_init();
-curl_setopt_array($curl, array(
-    CURLOPT_SSL_VERIFYPEER => 0,
-    CURLOPT_POST => 1,
-    CURLOPT_HEADER => 0,
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => $webhookURL,
-));
 
-$result = curl_exec($curl);
-curl_close($curl);
 
-echo '<pre>';
-print_r($result);
-print_r(json_decode($result, true));
-echo '</pre>';
+var_dump($bx24->addLead($test->setArray()));
+die();

@@ -1,6 +1,6 @@
 <?php
 
-namespace LinkedinToBitrixImporter;
+namespace LinkedinToBitrixImporter\InternalModels;
 
 class Work
 {
