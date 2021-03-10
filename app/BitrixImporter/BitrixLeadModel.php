@@ -15,7 +15,6 @@ class BitrixLeadModel
     public function setLinkedinProfile(LinkedinProfile $linkedinProfile)
     {
         $this->linkedinProfile = $linkedinProfile;
-
         $this->bitrixLead = [
             'TITLE' => '',
             'NAME' => $this->linkedinProfile->getName(),
