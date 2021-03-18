@@ -13,8 +13,7 @@ class LinkedinProfile
     protected string $website;
     protected string $summary;
     protected string $user;
-
-
+    protected string $idVacancy;
 
 
     /** @var Work[] $works */
@@ -36,15 +35,14 @@ class LinkedinProfile
         $this->setEducation($userArray['education']);
         $this->setSkills($userArray['skills']);
         $this->setNewUserArray();
-
+        $this->idVacancy = (string)$userArray['bitrix_user_id'];
     }
-
 
 
     protected function setNewUserArray(): self
     {
         $this->user = $this->userData['name'];
-        $this->usersData = explode(' ',$this->user);
+        $this->usersData = explode(' ', $this->user);
         $this->name = $this->usersData[0];
         $this->surname = $this->usersData[1];
         $this->name = $this->usersData[0] ?? '';
@@ -123,6 +121,14 @@ class LinkedinProfile
     public function getLabel(): string
     {
         return $this->label;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIdVacancy(): string
+    {
+        return $this->idVacancy;
     }
 
 }

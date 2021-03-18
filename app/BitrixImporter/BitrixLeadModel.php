@@ -16,6 +16,7 @@ class BitrixLeadModel
     {
         $this->linkedinProfile = $linkedinProfile;
         $this->bitrixLead = [
+            'UF_CRM_1593696871' => $this->linkedinProfile->getIdVacancy(),
             'TITLE' => '',
             'NAME' => $this->linkedinProfile->getName(),
             'LAST_NAME' => $this->linkedinProfile->getSurname(),
@@ -35,6 +36,7 @@ class BitrixLeadModel
             ],
             'POST' => '',
         ];
+
     }
 
 

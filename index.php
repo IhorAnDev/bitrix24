@@ -16,10 +16,10 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 $userArray = null;
 
-if (!empty($_POST['data'])) {
+if (isset($_POST['data'], $_POST['bitrix_user_id'])) {
     try {
         $parsedUserData = json_decode($_POST['data'], true);
-
+        $parsedUserData['bitrix_user_id'] = $_POST['bitrix_user_id'];
         if (is_array($parsedUserData)) {
             $userArray = $parsedUserData;
         }
@@ -30,7 +30,7 @@ if (!empty($_POST['data'])) {
 
 if ($userArray !== null) {
 
-    $webhookURL = 'https://wdtest.bitrix24.ru/rest/1/bnr59s5dl5k8zeic/';
+    $webhookURL = 'https://bitrix.wizardsdev.com/rest/56/0ehxjf8on72381zu/';
     $bitrix24 = new Bitrix24API($webhookURL);
     $bitrixModel = new BitrixLeadModel();
 //@todo create Linkedin Profile
