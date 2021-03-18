@@ -16,6 +16,7 @@ class BitrixLeadModel
     {
         $this->linkedinProfile = $linkedinProfile;
         $this->bitrixLead = [
+
             'UF_CRM_1593696871' => $this->linkedinProfile->getIdVacancy(),
             'TITLE' => '',
             'NAME' => $this->linkedinProfile->getName(),
@@ -27,10 +28,11 @@ class BitrixLeadModel
                     'VALUE_TYPE' => 'WORK',
                 ]
             ],
+            'HAS_PHONE' => $this->linkedinProfile->getPhone(),
             'COMPANY_TITLE' => $this->linkedinProfile->getLabel(),
             'EMAIL' => [
                 [
-                    'VALUE' => '',
+                    'VALUE' => $this->linkedinProfile->getEmail(),
                     'VALUE_TYPE' => 'WORK',
                 ]
             ],

@@ -130,5 +130,12 @@ class LinkedinProfile
     {
         return $this->idVacancy;
     }
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
 
 }

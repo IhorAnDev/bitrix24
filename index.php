@@ -20,6 +20,7 @@ if (isset($_POST['data'], $_POST['bitrix_user_id'])) {
     try {
         $parsedUserData = json_decode($_POST['data'], true);
         $parsedUserData['bitrix_user_id'] = $_POST['bitrix_user_id'];
+
         if (is_array($parsedUserData)) {
             $userArray = $parsedUserData;
         }
@@ -27,7 +28,6 @@ if (isset($_POST['data'], $_POST['bitrix_user_id'])) {
     } catch (Exception $e) {
     }
 }
-
 if ($userArray !== null) {
 
     $webhookURL = 'https://bitrix.wizardsdev.com/rest/56/0ehxjf8on72381zu/';
@@ -37,6 +37,7 @@ if ($userArray !== null) {
     $bitrixModel->setLinkedinProfile(
         new LinkedinProfile($userArray)
     );
+
 
 
     $bitrixSync = new BitrixSync(
