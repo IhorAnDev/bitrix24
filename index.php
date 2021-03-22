@@ -16,11 +16,12 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 $userArray = null;
 
-if (isset($_POST['data'], $_POST['bitrix_user_id'])) {
+if (isset($_POST['data'], $_POST['bitrix_user_id'],$_POST['bitrix_user_name'])) {
+
     try {
         $parsedUserData = json_decode($_POST['data'], true);
         $parsedUserData['bitrix_user_id'] = $_POST['bitrix_user_id'];
-
+        $parsedUserData['bitrix_user_name'] = $_POST['bitrix_user_name'];
         if (is_array($parsedUserData)) {
             $userArray = $parsedUserData;
         }

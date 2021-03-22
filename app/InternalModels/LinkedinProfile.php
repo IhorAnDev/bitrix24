@@ -34,18 +34,17 @@ class LinkedinProfile
         $this->setWorks($userArray['work']);
         $this->setEducation($userArray['education']);
         $this->setSkills($userArray['skills']);
+        $this->user = $userArray['bitrix_user_name'];
         $this->setNewUserArray();
         $this->idVacancy = (string)$userArray['bitrix_user_id'];
-    }
 
+    }
 
     protected function setNewUserArray(): self
     {
-        $this->user = $this->userData['name'];
         $this->usersData = explode(' ', $this->user);
-        $this->name = $this->usersData[0];
-        $this->surname = $this->usersData[1];
-        $this->name = $this->usersData[0] ?? '';
+        $this->name = $this->usersData[1] ?? '';
+        $this->surname = $this->usersData[2] ?? '';
 
 
         $this->label = $this->userData['label'] ?? '';
@@ -72,6 +71,7 @@ class LinkedinProfile
     {
 
         foreach ($works as $work) {
+
             $this->works[] = new Work($work);
         }
     }
@@ -130,6 +130,7 @@ class LinkedinProfile
     {
         return $this->idVacancy;
     }
+
     /**
      * @return string
      */
