@@ -15,6 +15,9 @@ class LinkedinProfile
     protected string $user;
     protected string $idVacancy;
     protected string $human;
+    protected string $userEng;
+    protected string $userNameEng;
+    protected string $userSurnameEng;
 
 
     /** @var Work[] $works */
@@ -28,17 +31,27 @@ class LinkedinProfile
 
     private array $userData;
     protected array $usersData;
+    protected array $splitArrayEng;
 
     public function __construct(array $userArray)
     {
+        $this->parseUserArray($userArray);
+
+
+    }
+
+    public function parseUserArray(array $userArray)
+    {
         $this->userData = $userArray['basics'];
+        $this->user = $userArray['bitrix_user_name'];
+        $this->human = $userArray['bitrix_radio'] == "man" ? '44' : '46';
+        $this->idVacancy = (string)$userArray['bitrix_user_id'];
+        $this->userEng = $this->userData['name'];
         $this->setWorks($userArray['work']);
         $this->setEducation($userArray['education']);
         $this->setSkills($userArray['skills']);
-        $this->user = $userArray['bitrix_user_name'];
-        $this->human = $userArray['bitrix_radio'] == "man" ? '44' : '46';
         $this->setNewUserArray();
-        $this->idVacancy = (string)$userArray['bitrix_user_id'];
+        $this->splitNameEng($this->userEng);
 
     }
 
@@ -149,4 +162,29 @@ class LinkedinProfile
     {
         return $this->human;
     }
+
+    public function splitNameEng(string $userEng)
+    {
+        $this->splitArrayEng = explode(' ',$userEng);
+        $this->userNameEng = $this->splitArrayEng[0] ?? '';
+        $this->userSurnameEng = $this->splitArrayEng[1] ?? '';
+
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserNameEng(): string
+    {
+        return $this->userNameEng;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserSurnameEng(): string
+    {
+        return $this->userSurnameEng;
+    }
+
 }

@@ -19,8 +19,12 @@ class BitrixLeadModel
             'UF_CRM_1595320742' => $this->linkedinProfile->getHuman(),
             'UF_CRM_1593696871' => $this->linkedinProfile->getIdVacancy(),
             'TITLE' => '',
-            'NAME' => $this->linkedinProfile->getName(),
-            'LAST_NAME' => $this->linkedinProfile->getSurname(),
+            'NAME' => $this->linkedinProfile->getName() == ''
+                ? $this->linkedinProfile->getUserNameEng()
+                : $this->linkedinProfile->getName(),
+            'LAST_NAME' => $this->linkedinProfile->getSurname() == ''
+                ? $this->linkedinProfile->getUserSurnameEng()
+                : $this->linkedinProfile->getSurname(),
             'SECOND_NAME' => '',
             'PHONE' => [
                 [
